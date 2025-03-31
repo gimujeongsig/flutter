@@ -18,13 +18,13 @@ class _ButtonPageState extends State<ButtonPage> {
         child: Column(
           children: [
             Center(
-              child: OutlinedButton(
+              child: ElevatedButton(
                   onPressed: ()=> print("Elevated Button"),
                   child: const Text('Elevated버튼'),
             ),
           ),
           Center(
-            child: OutlinedButton(
+            child: TextButton(
                onPressed: ()=> print("Text Button"),
                child: const Text("Text버튼")
            ),
