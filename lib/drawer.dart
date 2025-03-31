@@ -75,6 +75,15 @@ class MyDrawer extends StatelessWidget {
                   context, "/button"
               );
             },
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text("Input 에제"),
+            onTap: () {
+              Navigator.pushNamed(
+                  context, "/input"
+              );
+            },
           )
         ],
       ),
