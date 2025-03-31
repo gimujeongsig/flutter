@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/popup_page.dart';
+import 'button_page.dart';
 import 'flex_page.dart';
 import 'image_page.dart';
 import 'setting_page.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/popup': (context) => const PopupPage(),
         '/flex' : (context) => const FlexPage(),
         '/image': (context) => const ImagePage(),
+        '/button': (context) => const ButtonPage(),
       },
     );
   }

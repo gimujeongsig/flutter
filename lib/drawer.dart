@@ -32,7 +32,7 @@ class MyDrawer extends StatelessWidget {
             },
           ),
            ListTile(
-            leading: const Icon(Icons.home),
+            leading: const Icon(Icons.settings),
             title: const Text("설정"),
             onTap: () {
               Navigator.pushNamed(
@@ -64,6 +64,15 @@ class MyDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(
                   context, "/image"
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.home),
+            title: const Text("Button 예제"),
+            onTap: () {
+              Navigator.pushNamed(
+                  context, "/button"
               );
             },
           )
