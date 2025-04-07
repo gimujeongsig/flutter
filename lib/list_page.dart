@@ -53,7 +53,18 @@ class _State extends State<ListPage> {
                           controller: _controller,
                           decoration: const InputDecoration(
                               hintText: "아이템 입력", border: OutlineInputBorder()),
-                        )),
+                          onSubmitted: (value) {
+                            final text = value.trim();
+                            if (text.isNotEmpty) {
+                              setState(() {
+                                fruits.add(text);
+                                _controller.clear();
+                              });
+                              _saveFruits();
+                            }
+                          },
+                        )
+                    ),
                     const SizedBox(width: 10),
                     ElevatedButton(
                         onPressed: () {
