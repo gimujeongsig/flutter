@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled2/list_page.dart';
 import 'package:untitled2/popup_page.dart';
 import 'button_page.dart';
 import 'flex_page.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/image': (context) => const ImagePage(),
         '/button': (context) => const ButtonPage(),
         '/input': (context) => const InputPage(),
+        '/list': (context) => const ListPage(),
       },
     );
   }
