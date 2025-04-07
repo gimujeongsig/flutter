@@ -56,6 +56,16 @@ class _State extends State<ListPage> {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text('${fruits[index]}를 선택하세요')));
                         },
+                        onLongPress: () {
+                          final deletedItem = fruits[index];
+                          setState(() {
+                            fruits.removeAt(index);
+                          });
+
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text('$deletedItem를 삭제함!')));
+
+                        },
                       );
                     }))
           ],
