@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class ListPage extends StatefulWidget {
   const ListPage({super.key});
@@ -8,8 +10,31 @@ class ListPage extends StatefulWidget {
 }
 
 class _State extends State<ListPage> {
-  final List<String> fruits = ["사과", "바나나", "포도", "딸기", "복숭아"];
+  List<String> fruits = ["사과", "바나나", "포도", "딸기", "복숭아"];
   final TextEditingController _controller = TextEditingController();
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadFruits();
+  }
+
+  void _loadFruits() async {
+    final prefs = await SharedPreferences.getInstance();
+    final saveData = prefs.getStringList("fruits");
+    if (saveData != null) {
+      setState(() {
+        fruits = saveData;
+      });
+    }
+  }
+
+  void _saveFruits() async {
+    final prefs = await SharedPreferences.getInstance();
+    await  prefs.setStringList("fruits", fruits);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +63,7 @@ class _State extends State<ListPage> {
                               fruits.add(text);
                               _controller.clear();
                             });
+                            _saveFruits();
                           }
                         },
                         child: const Text("추가")
@@ -80,6 +106,7 @@ class _State extends State<ListPage> {
                                             setState(() {
                                               fruits[index] = newText;
                                             });
+                                            _saveFruits();
                                           }
                                           Navigator.pop(context);
                                         },
